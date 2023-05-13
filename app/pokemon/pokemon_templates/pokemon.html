@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<div class="container">
+        <div class="row">
+    {% if pokemon1['Name'] and pokemon2['Name'] and pokemon3['Name'] and pokemon4['Name'] and pokemon5['Name']%}
+    <div class="border border-dark bg-dark text-center">
+
+    </div>
+    <div class="card-group">
+    <div class="card text-center" style="width: 18rem;">
+        <img src="{{pokemon1['Front Shiny']}}" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h2 class="card-title">{{pokemon1['Name'].title()}}!</h2>
+            <p class="card-text">Ability : {{pokemon1['Ability'].title()}} </p>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Pokemon ID : {{pokemon1['Id']}}</li>
+                <li class="list-group-item">Base HP : {{pokemon1['Base HP']}}</li>
+                <li class="list-group-item">Base Attack : {{pokemon1['Base ATK']}}</li>
+                <li class="list-group-item">Base Defense : {{pokemon1['Base DEF']}}</li>
+            </ul>
+            <a href="{{ url_for('pokemon.catchPokemon', p_id=pokemon1['Id'])}}" class="btn btn-danger">Catch Me!</a>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+
+
+
+{% else %}
+
+<div id="registration" class="card text-center bg-danger" style="width: 18rem;">
+    <img src="https://64.media.tumblr.com/c8b03315f4657e20b910b72d04c492cb/tumblr_p4oungyX8I1vkw0o9o1_1280.gif"
+        class="card-img-top" alt="EMPTY BALL">
+    <div class="card-body">
+        <h1 class="card-title">empty</h1>
+        <form method="POST">
+        </form>
+    </div>
+</div>
+
+{% endif %}
+
+{% endblock %}

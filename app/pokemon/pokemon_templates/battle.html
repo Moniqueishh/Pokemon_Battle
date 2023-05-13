@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<h1 class="text-center">Your Pokemon</h1>
+<div class="card-group">
+    <div class="card text-center" style="width: 18rem;">
+        <img src="{{p1.picture}}" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h2 class="card-title">{{p1.pokemon_name.title()}}!</h2>
+            <p class="card-text">Ability : {{p1.ability.title()}} </p>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Pokemon ID : {{p1.poke_id}}</li>
+                <li class="list-group-item">Base HP : {{p1.base_hp}}</li>
+                <li class="list-group-item">Base Attack : {{p1.base_attack}}</li>
+                <li class="list-group-item">Base Defense : {{p1.base_defense}}</li>
+            </ul>
+        </div>
+    </div>
+
+
+    <div class="card text-center" style="width: 18rem;">
+        <img src="{{p2.picture}}" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h2 class="card-title">{{p2.pokemon_name.title()}}!</h2>
+            <p class="card-text">Ability : {{p2.ability.title()}} </p>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Pokemon ID : {{p2.poke_id}}</li>
+                <li class="list-group-item">Base HP : {{p2.base_hp}}</li>
+                <li class="list-group-item">Base Attack : {{p2.base_attack}}</li>
+                <li class="list-group-item">Base Defense : {{p2.base_defense}}</li>
+            </ul>
+        </div>
+    </div>
+
+
+    <div class="card text-center" style="width: 18rem;">
+        <img src="{{p3.picture}}" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h2 class="card-title">{{p3.pokemon_name.title()}}!</h2>
+            <p class="card-text">Ability : {{p3.ability.title()}} </p>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Pokemon ID : {{p3.poke_id}}</li>
+                <li class="list-group-item">Base HP : {{p3.base_hp}}</li>
+                <li class="list-group-item">Base Attack : {{p3.base_attack}}</li>
+                <li class="list-group-item">Base Defense : {{p3.base_defense}}</li>
+            </ul>
+        </div>
+    </div>
+
+
+    <div class="card text-center" style="width: 18rem;">
+        <img src="{{p4.picture}}" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h2 class="card-title">{{p4.pokemon_name.title()}}!</h2>
+            <p class="card-text">Ability : {{p4.ability.title()}} </p>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Pokemon ID : {{p4.poke_id}}</li>
+                <li class="list-group-item">Base HP : {{p4.base_hp}}</li>
+                <li class="list-group-item">Base Attack : {{p4.base_attack}}</li>
+                <li class="list-group-item">Base Defense : {{p4.base_defense}}</li>
+            </ul>
+        </div>
+    </div>
+
+
+    <div class="card text-center" style="width: 18rem;">
+        <img src="{{p5.picture}}" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h2 class="card-title">{{p5.pokemon_name.title()}}!</h2>
+            <p class="card-text">Ability : {{p5.ability.title()}} </p>
+
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Pokemon ID : {{p5.poke_id}}</li>
+                <li class="list-group-item">Base HP : {{p5.base_hp}}</li>
+                <li class="list-group-item">Base Attack : {{p5.base_attack}}</li>
+                <li class="list-group-item">Base Defense : {{p5.base_defense}}</li>
+            </ul>
+        </div>
+
+    </div>
+</div>
+<h1>Select a player to fight</h1>
+
+{% for t in users %}
+
+{% if t != current_user%}
+<a href="{{ url_for('pokemon.FinalBattle', t_id = t.id) }}" class="btn btn-dark text-center">Users:
+    {{t.username.title()}}</a>
+{% endif %}
+
+{% endfor %}
+{% endblock %}

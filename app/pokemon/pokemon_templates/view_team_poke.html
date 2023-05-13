@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+{% if pokemon: %}
+{% for p in pokemon %}
+<div class="card text-center" style="width: 18rem;">
+    <img src="{{p.picture}}" class="card-img-top" alt="...">
+    <div class="card-body">
+        <h2 class="card-title">{{p.pokemon_name.title()}}!</h2>
+        <p class="card-text">Ability : {{p.ability.title()}} </p>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">Pokemon ID : {{p.poke_id}}</li>
+            <li class="list-group-item">Base HP : {{p.base_hp}}</li>
+            <li class="list-group-item">Base Attack : {{p.base_attack}}</li>
+            <li class="list-group-item">Base Defense : {{p.base_defense}}</li>
+        </ul>
+    </div>
+</div>
+{% endfor %}
+{% else %}
+<div class="card bg-danger text-white" style="width: 18rem;">
+
+    <div class="card-body">
+        <h5 class="card-title">You have no Poke! Catch a poke then come back here!</h5>
+    </div>
+</div>
+{% endif %}
+{% endblock %}

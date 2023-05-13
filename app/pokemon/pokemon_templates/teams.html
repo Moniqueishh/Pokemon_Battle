@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+{% for t in teams %}
+<div class="card text-center mb-3" style="max-width: 18rem;">
+    <div class="card-header"></div>
+    <a href="{{ url_for('pokemon.viewTeamsPoke', t_id=t.id) }}" class="btn btn-warning">View Your Team!</a>
+    <div class="card-body">
+
+    </div>
+  </div>
+{% endfor %}
+
+{% endblock %}
